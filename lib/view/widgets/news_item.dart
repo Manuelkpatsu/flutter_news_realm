@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutternewsrealm/view/screens/detailed_screen.dart';
 
 class NewsItem extends StatelessWidget {
   const NewsItem({Key? key}) : super(key: key);
@@ -6,7 +7,10 @@ class NewsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => const DetailedScreen()));
+      },
       child: IntrinsicHeight(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

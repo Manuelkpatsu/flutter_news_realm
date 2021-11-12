@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutternewsrealm/view/screens/detailed_screen.dart';
 
 class CarouselItem extends StatelessWidget {
   const CarouselItem({Key? key}) : super(key: key);
@@ -8,7 +9,10 @@ class CarouselItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(5.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const DetailedScreen()));
+        },
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(5.0)),
           child: Stack(
