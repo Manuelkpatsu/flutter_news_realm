@@ -13,78 +13,90 @@ class _DetailedScreenState extends State<DetailedScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            expandedHeight: 220,
-            iconTheme: const IconThemeData(color: Colors.white),
-            floating: true,
-            pinned: true,
-            snap: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: IntrinsicWidth(
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.purple,
-                  ),
-                  child: const Text(
-                    'Entertainment',
-                    style: TextStyle(color: Colors.white, fontSize: 10),
+          SliverLayoutBuilder(
+            builder: (BuildContext context, constraints) {
+              final scrolled = constraints.scrollOffset >
+                  (MediaQuery.of(context).padding.top + kToolbarHeight);
+
+              return SliverAppBar(
+                expandedHeight: 220,
+                iconTheme: IconThemeData(color: scrolled ? Colors.black : Colors.white),
+                floating: true,
+                pinned: true,
+                snap: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  title: scrolled
+                      ? Container()
+                      : IntrinsicWidth(
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Colors.red.shade300,
+                            ),
+                            child: const Text(
+                              'Entertainment',
+                              style: TextStyle(color: Colors.white, fontSize: 10),
+                            ),
+                          ),
+                        ),
+                  background: Image.network(
+                    'https://images.unsplash.com/photo-1600250395178-40fe752e5189?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHNvY2NlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    fit: BoxFit.cover,
+                    colorBlendMode: BlendMode.darken,
+                    color: Colors.black.withOpacity(0.2),
                   ),
                 ),
-              ),
-              background: Image.network(
-                'https://images.unsplash.com/photo-1600250395178-40fe752e5189?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHNvY2NlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-                fit: BoxFit.cover,
-              ),
-            ),
+              );
+            },
           ),
           SliverList(
-              delegate: SliverChildListDelegate([
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-              child: Column(
-                children: [
-                  const Text(
-                    "No, staring at a screen won't damage your eyes",
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            delegate: SliverChildListDelegate(
+              [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                  child: Column(
                     children: [
-                      authorAndTime(),
-                      readDuration()
+                      const Text(
+                        "No, staring at a screen won't damage your eyes",
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [authorAndTime(), readDuration()],
+                      ),
+                      const SizedBox(height: 10),
+                      const Divider(height: 0, thickness: 1),
+                      const SizedBox(height: 20),
+                      const Text(
+                        "I'm here to quell your health concerns: staring at a screen doesn't damage your eyes. They won't make you go blind, and your doctor isn't going to worry about your health if he or she hears that you're spending a lot of time in front of them.",
+                        style: TextStyle(fontSize: 16, height: 1.5),
+                      ),
+                      const Text(
+                        "I'm here to quell your health concerns: staring at a screen doesn't damage your eyes. They won't make you go blind, and your doctor isn't going to worry about your health if he or she hears that you're spending a lot of time in front of them.",
+                        style: TextStyle(fontSize: 16, height: 1.5),
+                      ),
+                      const Text(
+                        "I'm here to quell your health concerns: staring at a screen doesn't damage your eyes. They won't make you go blind, and your doctor isn't going to worry about your health if he or she hears that you're spending a lot of time in front of them.",
+                        style: TextStyle(fontSize: 16, height: 1.5),
+                      ),
+                      const Text(
+                        "I'm here to quell your health concerns: staring at a screen doesn't damage your eyes. They won't make you go blind, and your doctor isn't going to worry about your health if he or she hears that you're spending a lot of time in front of them.",
+                        style: TextStyle(fontSize: 16, height: 1.5),
+                      )
                     ],
                   ),
-                  const SizedBox(height: 10),
-                  const Divider(height: 0, thickness: 1),
-                  const SizedBox(height: 20),
-                  const Text(
-                    "I'm here to quell your health concerns: staring at a screen doesn't damage your eyes. They won't make you go blind, and your doctor isn't going to worry about your health if he or she hears that you're spending a lot of time in front of them.",
-                    style: TextStyle(fontSize: 16, height: 1.5),
-                  ),
-                  const Text(
-                    "I'm here to quell your health concerns: staring at a screen doesn't damage your eyes. They won't make you go blind, and your doctor isn't going to worry about your health if he or she hears that you're spending a lot of time in front of them.",
-                    style: TextStyle(fontSize: 16, height: 1.5),
-                  ),
-                  const Text(
-                    "I'm here to quell your health concerns: staring at a screen doesn't damage your eyes. They won't make you go blind, and your doctor isn't going to worry about your health if he or she hears that you're spending a lot of time in front of them.",
-                    style: TextStyle(fontSize: 16, height: 1.5),
-                  ),
-                  const Text(
-                    "I'm here to quell your health concerns: staring at a screen doesn't damage your eyes. They won't make you go blind, and your doctor isn't going to worry about your health if he or she hears that you're spending a lot of time in front of them.",
-                    style: TextStyle(fontSize: 16, height: 1.5),
-                  )
-                ],
-              ),
-            )
-          ]))
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
