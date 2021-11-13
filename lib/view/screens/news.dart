@@ -13,21 +13,23 @@ class _NewsState extends State<News> {
   // List of Tabs
   final List<Tab> _tabs = [
     const Tab(text: 'General'),
-    const Tab(text: 'Sport'),
-    const Tab(text: 'Economy'),
+    const Tab(text: 'Sports'),
+    const Tab(text: 'Business'),
     const Tab(text: 'Tech'),
     const Tab(text: 'Health'),
-    const Tab(text: 'Music'),
+    const Tab(text: 'Entertainment'),
+    const Tab(text: 'Science'),
   ];
 
   // List of TabViews
   final List<Widget> _tabViews = [
     const SharedScreen('General News'),
-    const SharedScreen('Sport News'),
-    const SharedScreen('Economy News'),
-    const SharedScreen('Tech News'),
+    const SharedScreen('Sports News'),
+    const SharedScreen('Business News'),
+    const SharedScreen('Technology News'),
     const SharedScreen('Health News'),
-    const SharedScreen('Music News'),
+    const SharedScreen('Entertainment News'),
+    const SharedScreen('Science News'),
   ];
 
   @override

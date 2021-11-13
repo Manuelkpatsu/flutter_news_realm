@@ -20,8 +20,10 @@ class NewsItem extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                  'https://images.unsplash.com/photo-1600250395178-40fe752e5189?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHNvY2NlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                child: FadeInImage.assetNetwork(
+                  placeholder: 'assets/images/image-placeholder.png',
+                  image:
+                      'https://images.unsplash.com/photo-1600250395178-40fe752e5189?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHNvY2NlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
                   height: 90,
                   width: 90,
                   fit: BoxFit.cover,

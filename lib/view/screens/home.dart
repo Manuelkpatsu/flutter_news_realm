@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'news.dart';
 import 'search.dart';
 import 'settings.dart';
-import 'videos.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -20,7 +19,6 @@ class _HomeState extends State<Home> {
   final List<Widget> _screens = [
     const News(),
     const Search(),
-    const Videos(),
     const Settings(),
   ];
 
@@ -52,10 +50,6 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
               icon: Icon(Icons.search_rounded),
               label: 'Search'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.smart_display_rounded),
-              label: 'Videos'
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings_rounded),

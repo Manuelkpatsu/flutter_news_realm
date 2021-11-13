@@ -27,7 +27,14 @@ class _DetailedScreenState extends State<DetailedScreen> {
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
                   title: scrolled
-                      ? Container()
+                      ? const Text(
+                          'Entertainment News',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
                       : IntrinsicWidth(
                           child: Container(
                             padding: const EdgeInsets.all(4),
@@ -36,16 +43,16 @@ class _DetailedScreenState extends State<DetailedScreen> {
                               color: Colors.red.shade300,
                             ),
                             child: const Text(
-                              'Entertainment',
+                              'Entertainment News',
                               style: TextStyle(color: Colors.white, fontSize: 10),
                             ),
                           ),
                         ),
-                  background: Image.network(
-                    'https://images.unsplash.com/photo-1600250395178-40fe752e5189?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHNvY2NlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                  background: FadeInImage.assetNetwork(
+                    placeholder: 'assets/images/image-placeholder.png',
+                    image:
+                        'https://images.unsplash.com/photo-1600250395178-40fe752e5189?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHNvY2NlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
                     fit: BoxFit.cover,
-                    colorBlendMode: BlendMode.darken,
-                    color: Colors.black.withOpacity(0.2),
                   ),
                 ),
               );
@@ -109,7 +116,8 @@ class _DetailedScreenState extends State<DetailedScreen> {
       children: [
         const CircleAvatar(
           backgroundColor: Colors.grey,
-          backgroundImage: NetworkImage(
+          backgroundImage: AssetImage('assets/images/profile.png'),
+          foregroundImage: NetworkImage(
             "https://images.unsplash.com/photo-1513152697235-fe74c283646a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZmlsZSUyMHBob3RvfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
           ),
         ),

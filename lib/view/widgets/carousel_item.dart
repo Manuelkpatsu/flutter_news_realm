@@ -20,6 +20,18 @@ class CarouselItem extends StatelessWidget {
               Image.network(
                 'https://images.unsplash.com/photo-1513152697235-fe74c283646a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZmlsZSUyMHBob3RvfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
                 fit: BoxFit.cover,
+                loadingBuilder:
+                    (BuildContext ctx, Widget child, ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Center(
+                    child: CircularProgressIndicator(
+                      value: loadingProgress.expectedTotalBytes != null
+                          ? loadingProgress.cumulativeBytesLoaded /
+                              loadingProgress.expectedTotalBytes!.toInt()
+                          : null,
+                    ),
+                  );
+                },
                 width: MediaQuery.of(context).size.width,
                 colorBlendMode: BlendMode.darken,
                 color: Colors.black.withOpacity(0.2),
