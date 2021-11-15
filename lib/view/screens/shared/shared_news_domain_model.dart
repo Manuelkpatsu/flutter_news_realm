@@ -31,7 +31,10 @@ class NewsDomainModel {
                 category: category,
               ))
           .toList();
-      _sharedNewsController.add(newsList);
+
+      if (!_sharedNewsController.isClosed) {
+        _sharedNewsController.add(newsList);
+      }
     });
   }
 
