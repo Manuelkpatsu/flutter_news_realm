@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutternewsrealm/view/screens/shared/shared_news_argument.dart';
 
-import 'shared.dart';
+import 'shared/shared_news.dart';
 
 class News extends StatefulWidget {
   const News({Key? key}) : super(key: key);
@@ -23,13 +24,13 @@ class _NewsState extends State<News> {
 
   // List of TabViews
   final List<Widget> _tabViews = [
-    const SharedScreen('General News'),
-    const SharedScreen('Sports News'),
-    const SharedScreen('Business News'),
-    const SharedScreen('Technology News'),
-    const SharedScreen('Health News'),
-    const SharedScreen('Entertainment News'),
-    const SharedScreen('Science News'),
+    const SharedNews(SharedNewsArgument('general')),
+    const SharedNews(SharedNewsArgument('sports')),
+    const SharedNews(SharedNewsArgument('business')),
+    const SharedNews(SharedNewsArgument('technology')),
+    const SharedNews(SharedNewsArgument('health')),
+    const SharedNews(SharedNewsArgument('entertainment')),
+    const SharedNews(SharedNewsArgument('science'))
   ];
 
   @override
