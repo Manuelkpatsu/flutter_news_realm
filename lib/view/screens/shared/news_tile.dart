@@ -77,7 +77,7 @@ class NewsTile extends StatelessWidget {
         padding: const EdgeInsets.all(3),
         color: Colors.red,
         child: Text(
-          'General'.toUpperCase(),
+          _modelData.category.toUpperCase(),
           textAlign: TextAlign.center,
           style: const TextStyle(
             color: Colors.white,

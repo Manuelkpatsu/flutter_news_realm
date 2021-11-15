@@ -10,6 +10,7 @@ class NewsTileModelData extends Equatable {
   final String urlToImage;
   final DateTime publishedAt;
   final String content;
+  final String category;
 
   const NewsTileModelData({
     this.author = '',
@@ -19,6 +20,7 @@ class NewsTileModelData extends Equatable {
     this.urlToImage = '',
     required this.publishedAt,
     this.content = '',
+    this.category = '',
   });
 
   @override
@@ -30,5 +32,6 @@ class NewsTileModelData extends Equatable {
         urlToImage,
         publishedAt,
         content,
+        category,
       ];
 }

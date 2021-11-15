@@ -28,6 +28,7 @@ class NewsDomainModel {
                 urlToImage: article.urlToImage ?? '',
                 publishedAt: article.publishedAt!,
                 content: article.content ?? '',
+                category: category,
               ))
           .toList();
       _sharedNewsController.add(newsList);
